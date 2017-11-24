@@ -13,7 +13,7 @@ else
 	ERROR=1;
 fi
 if [ $ERROR -eq 1 ]; then 
-	printf "Alert from vox.tilaa.cloud!\r\n\r\n\
+	printf "Vox alert feed not working!\r\n\r\n\
 The feed has not been updated for more than 6 hours.\r\n\
 We have not restarted any services.\r\n\
 Check that geth and setzer service work properly!\r\n\r\n\
