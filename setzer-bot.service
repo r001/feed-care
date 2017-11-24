@@ -1,0 +1,14 @@
+[Unit]
+Description=Setzer Bot
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/setzer bot --auto
+Restart=always
+RestartSec=1
+TimeoutStartSec=5
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target
