@@ -1,5 +1,6 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+. "$DIR/alert_settings.sh"
 DOMAINNAME=`hostname`
 USEDSPACE=`/bin/df|/bin/grep vda1|/bin/sed 's/.*\s\([0-9]\+\)%.*/\1/g'`
 if (( $(echo "$USEDSPACE >= $DISK_SPACE_THRESHOLD" | bc -l)  )); then 
