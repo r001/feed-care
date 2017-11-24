@@ -44,4 +44,4 @@ This script should be run once every hour.
 ## Alert if feed was not updated for more than 6 hours - alert_txcount.sh
 
 This script alerts EMAIL if feed update count did not increase. (Meaning the feed has not been updated since last run of this script.)
-This script should be run in every 6 houras
+This script should be run in every 6 hours
