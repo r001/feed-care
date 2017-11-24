@@ -6,6 +6,6 @@ if (( $(echo "$BALANCE < $THRESHOLD" | bc -l)  )); then
 Balance is $BALANCE and it is less than $THRESHOLD .\r\n\
 Please deposit into account $ACC !\r\n\r\n\
 Best regards\r\n\
-cron@vox.tilaa.cloud:/root/.scripts/alert_balance.sh"\
+cron@"`hostname`":/root/.scripts/alert_balance.sh"\
 |/usr/bin/mail -a "X-Priority:1" -s "Vox balance low ($BALANCE ETH)!" $EMAIL
 fi
