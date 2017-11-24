@@ -1,7 +1,7 @@
 #email for alerts
-EMAIL=rob@nyar.eu
+EMAIL=
 #ethereum account for paying feed
-ACC=0x8afbd9c3d794ed8df903b3468f4c4ea85be953fb
+ACC=
 #balance threshold in Ether under which alert is sent
 THRESHOLD=0.01
 #disk space in percentage to send alert
