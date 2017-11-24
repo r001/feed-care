@@ -18,7 +18,7 @@ The feed has not been updated for more than 6 hours.\r\n\
 We have not restarted any services.\r\n\
 Check that geth and setzer service work properly!\r\n\r\n\
 Best regards\r\n\
-cron@"`hostname`":/root/.scripts/alert_txcount.sh"\
+cron@"`hostname`":$DIR/alert_txcount.sh"\
 |/usr/bin/mail -a "X-Priority:1" -s "Vox alert - feed not working!" $EMAIL
        	/usr/sbin/service geth restart
        	/usr/sbin/service setzer-bot restart
