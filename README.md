@@ -12,14 +12,14 @@ Directory contains necessary scripts that if run from crontab, can make sure tha
 ## Installation
 Lets assume the git clone base directory is DIR.
 
-- [ ] 0. Edit alert\_settings.sh and update EMAIL, and ACC variables.
-- [ ] 1. Install all the packages under Prerequisities.
-- [ ] 2. `mkdir /root/.scripts` # create dir for scripts
-- [ ] 3. `cp $DIR/\*.sh /root/.scripts` # copy all script files from DIR to /root/.scripts
-- [ ] 4. `cp setzer-bot.service /etc/systemd/system/ && systemctl daemon-reload && systemctl start setzer-bot` # create setzer-bot service (this one automatically restarts setzer if it stops)
-- [ ] 5. `cp geth.service /etc/systemd/system/ && systemctl daemon-reload && systemctl start geth`  #create service for geth (this one automatically restarts geth if process gets terminated) 
-- [ ] 6. Use `crontab_example` to edit crontab file `crontab -e`
-- [ ] 7. You are all set. 
+0. Edit alert\_settings.sh and update EMAIL, and ACC variables.
+1. Install all the packages under Prerequisities.
+2. `mkdir /root/.scripts` # create dir for scripts
+3. `cp $DIR/\*.sh /root/.scripts` # copy all script files from DIR to /root/.scripts
+4. `cp setzer-bot.service /etc/systemd/system/ && systemctl daemon-reload && systemctl start setzer-bot` # create setzer-bot service (this one automatically restarts setzer if it stops)
+5. `cp geth.service /etc/systemd/system/ && systemctl daemon-reload && systemctl start geth`  #create service for geth (this one automatically restarts geth if process gets terminated) 
+6. Use `crontab_example` to edit crontab file `crontab -e`
+7. You are all set. 
 
 ## Setup settings - alert_settings.sh
 **PLEASE EDIT THIS FILE BEFORE USING SCRIPTS**
