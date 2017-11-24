@@ -17,6 +17,6 @@ if [ $ERROR -eq 1 ]; then
 Geth is unavailable. Restarting geth.\r\n\r\n\
 Best regards\r\n\
 cron@"`hostname`":/root/.scripts/alert_ethereum.sh"\
-|/usr/bin/mail -a "X-Priority:1" -s "Vox geth is down!" $EMAIL
+|/usr/bin/mail -a "X-Priority:1" -s "Vox alert - geth is down!" $EMAIL
        	/usr/sbin/service geth restart
 fi
