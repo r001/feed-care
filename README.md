@@ -3,11 +3,11 @@
 Directory contains necessary scripts that if run from crontab, can make sure that a system running price feed using setzer, and geth --light or parity --light will become more reliable.
 
 ## Prerequisities 
-**mail** command must be operational to send email to arbitrary address. 
-**setzer** must be installed
-**seth** must be installed
-**geth** must be installed (if you install parity, the scripts wont restart it)
-**hostname** command must be installed (package **hostname** under ubuntu)
+- **mail** command must be operational to send email to arbitrary address. 
+- **setzer** must be installed
+- **seth** must be installed
+- **geth** must be installed (if you install parity, the scripts wont restart it)
+- **hostname** command must be installed (package **hostname** under ubuntu)
 
 ## Installation
 Lets assume the git clone base directory is DIR.
