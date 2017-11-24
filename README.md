@@ -17,9 +17,11 @@ Lets assume the git clone base directory is DIR.
 2. `mkdir /root/.scripts` # create dir for scripts
 3. `cp $DIR/\*.sh /root/.scripts` # copy all script files from DIR to /root/.scripts
 4. `cp setzer-bot.service /etc/systemd/system/ && systemctl daemon-reload && systemctl enable setzer-bot && systemctl start setzer-bot` # create setzer-bot service (this one automatically restarts setzer if it stops), and starts at boot time automatically
-5. `cp geth.service /etc/systemd/system/ && systemctl daemon-reload && systemctl enable geth && systemctl start geth`  #create service for geth (this one automatically restarts geth if process gets terminated), and starts at boot time automatically
-6. Use `crontab_example` to edit crontab file `crontab -e`
-7. You are all set. 
+5. Edit geth.service replace ethereum account after `--unlock` with your ethereum feed account number.
+6. Add and edit the file called `/root/.scripts/p.txt` and enter your ethereum feed account password.
+7. `cp geth.service /etc/systemd/system/ && systemctl daemon-reload && systemctl enable geth && systemctl start geth`  #create service for geth (this one automatically restarts geth if process gets terminated), and starts at boot time automatically
+8. Use `crontab_example` to edit crontab file `crontab -e`
+9. You are all set. 
 
 ## Setup settings - alert_settings.sh
 **PLEASE EDIT THIS FILE BEFORE USING SCRIPTS**
