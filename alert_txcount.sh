@@ -20,6 +20,7 @@ Check that geth and setzer service work properly!\r\n\r\n\
 Best regards\r\n\
 cron@"`hostname`":$DIR/alert_txcount.sh"\
 |/usr/bin/mail -a "X-Priority:1" -s "Vox alert - feed not working!" $EMAIL
+       	/usr/sbin/service parity restart
        	/usr/sbin/service geth restart
        	/usr/sbin/service setzer-bot restart
 fi

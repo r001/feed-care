@@ -18,5 +18,6 @@ Geth is unavailable. Restarting geth.\r\n\r\n\
 Best regards\r\n\
 cron@"`hostname`":/root/.scripts/alert_ethereum.sh"\
 |/usr/bin/mail -a "X-Priority:1" -s "Vox alert - geth is down!" $EMAIL
+       	/usr/sbin/service parity restart
        	/usr/sbin/service geth restart
 fi
