@@ -17,11 +17,20 @@ Lets assume the git clone base directory is DIR.
 2. `mkdir /root/.scripts` # create dir for scripts
 3. `cp $DIR/\*.sh /root/.scripts` # copy all script files from DIR to /root/.scripts
 4. `cp setzer-bot.service /etc/systemd/system/ && systemctl daemon-reload && systemctl enable setzer-bot && systemctl start setzer-bot` # create setzer-bot service (this one automatically restarts setzer if it stops), and starts at boot time automatically
-5. Edit geth.service replace ethereum account after `--unlock` with your ethereum feed account number.
+### If you use **geth** as Ethereum client
+5/a. Edit geth.service replace ethereum account after `--unlock` with your ethereum feed account number.
+5/b. `cp UTC--xxxx /root/.ethereum/keystore/` #Add your ethereum feed account to geth client. 
 6. Add and edit the file called `/root/.scripts/p.txt` and enter your ethereum feed account password.
 7. `cp geth.service /etc/systemd/system/ && systemctl daemon-reload && systemctl enable geth && systemctl start geth`  #create service for geth (this one automatically restarts geth if process gets terminated), and starts at boot time automatically
 8. Use `crontab_example` to edit crontab file `crontab -e`
-9. You are all set. 
+### If you use **parity** as Ethereum client
+5/a. Edit parity.service replace ethereum account after `--unlock` with your ethereum feed account number.
+5/b. `cp UTC--xxxx /root/.local/share/io.parity.ethereum/keys/ethereum/` #Add your ethereum feed account to geth client. 
+6. Add and edit the file called `/root/.scripts/p.txt` and enter your ethereum feed account password.
+7. `cp parity.service /etc/systemd/system/ && systemctl daemon-reload && systemctl enable parity && systemctl start parity`  #create service for parity (this one automatically restarts parity if process gets terminated), and starts at boot time automatically
+8. Use `crontab_example` to edit crontab file `crontab -e`
+
+9. You are all set. :) 
 
 ## Setup settings - alert_settings.sh
 **PLEASE EDIT THIS FILE BEFORE USING SCRIPTS**
