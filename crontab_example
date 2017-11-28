@@ -27,7 +27,8 @@
 #alert if free disk space for vox is too low
 0 8-20 * * * /root/.scripts/alert_filesystem.sh 
 #
-0 */3 * * * /usr/sbin/service setzer-bot restart
+#setzer bot does not need a restart anymore
+#0 */3 * * * /usr/sbin/service setzer-bot restart
 #
 #restart geth service if geth hung
 0 */1 * * * /root/.scripts/alert_ethereum.sh > /dev/null 2>&1
