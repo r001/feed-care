@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/parity --light --unlock 0x8aFBD9c3D794eD8DF903b3468f4c4Ea85be953FB --password /root/.scripts/p.txt
+ExecStart=/root/.scripts/parity
 Restart=always
 RestartSec=20
 TimeoutStartSec=60
