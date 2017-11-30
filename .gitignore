@@ -1,2 +1,7 @@
+.gitignore
 block.age
 tx.count
+alert_settings.sh
+*.swp
+*.age
+p.txt
