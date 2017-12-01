@@ -66,7 +66,7 @@ export ALERT_NODE_TIMEOUT=5s
 ```
 ## Alert if balance too low - alert_balance.sh
 
-Alerts email address if balance of feeds account is below THRESHOLD Ether defined in alert_settings.sh.
+Alerts email address if balance of feeds account is below THRESHOLD Ether defined in `alert_settings.sh`.
 
 Script should be run every hour. 
 
@@ -77,15 +77,15 @@ Script should be run every hour. (Note: should not be called more often, because
 
 ## Alert if geth stops working - alert_parity.sh
 
-Alerts user if parity client stops updating blocks (ie. geth is not operational).  
+Alerts user if parity client stops updating blocks (ie. parity is not operational).  
 Script should be run every hour. 
 
 ## Alert if file system is close to full - alert_filesystem.sh
 
-Alerts EMAIL if free disk space is under DISK_SPACE_THRESHOLD in alert_settings.sh.  
+Alerts EMAIL if free disk space is under DISK_SPACE_THRESHOLD in `alert_settings.sh`.  
 This script should be run once every hour.
 
 ## Alert if feed was not updated for more than 6 hours - alert_txcount.sh
 
-This script alerts EMAIL if feed update count did not increase. (Meaning the feed has not been updated since last run of this script.)
+This script alerts `EMAIL` if feed update count did not increase. (Meaning the feed has not been updated since last run of this script.)
 This script should be run in every 6 hours.
