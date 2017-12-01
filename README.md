@@ -12,7 +12,7 @@ Directory contains necessary scripts that if run from crontab, can make sure tha
 ## Installation
 Lets assume the git clone base directory is DIR.
 
-0. Edit alert\_settings.sh and update EMAIL, and ACC variables.  
+0. Edit `alert_settings.sh` and update  `EMAIL`, and `ACC` variables. (See **Setup settings** for details!)
 1. Install all the packages under Prerequisities.  
 2. `mkdir /root/.scripts` # create dir for scripts  
 3. `cp $DIR/\*.sh /root/.scripts` # copy all script files from DIR to /root/.scripts  
