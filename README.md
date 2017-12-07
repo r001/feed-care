@@ -32,7 +32,14 @@ Lets assume the git clone base directory is DIR.
 
 Note: You can install both **geth** and **parity** clients at the same time.
  
-## Setup settings - alert_settings.sh
+## Setup settings 
+### /etc/setzer.conf
+```bash
+#allowed maximum time the scripts wait before rendering node unavailable
+export RPC_TIMEOUT=50s
+```
+Note: in previous implementations `$ALERT_NODE_TIMEOUT` was used. But in current implementation we just use setzer's `$RPC_TIMEOUT` for the same purpose.
+### alert_settings.sh
 **PLEASE EDIT THIS FILE BEFORE USING SCRIPTS**
 ```bash
 #email for alerts
@@ -61,31 +68,40 @@ export GETH_RPC_PORT=8555
 #should be different from PARITY_NODE_PORT
 export GETH_NODE_PORT=30305
 
-#time we allow nodes to respond before rendering them unuseable
-export ALERT_NODE_TIMEOUT=5s
 ```
-## Alert if balance too low - alert_balance.sh
+## Alert if balance too low 
+### alert_balance.sh
 
 Alerts email address if balance of feeds account is below THRESHOLD Ether defined in `alert_settings.sh`.
 
 Script should be run every hour. 
 
-## Alert if geth stops working - alert_geth.sh
+## Alert if geth stops working 
+### alert_geth.sh
 
 Alerts user if geth client stops updating blocks (ie. geth is not operational). 
 Script should be run every hour. (Note: should not be called more often, because it takes geth sometimes 40 minutes to even start syncing blocks.)
 
-## Alert if geth stops working - alert_parity.sh
+## Alert if parity stops working 
+### alert_parity.sh
 
 Alerts user if parity client stops updating blocks (ie. parity is not operational).  
 Script should be run every hour. 
 
-## Alert if file system is close to full - alert_filesystem.sh
+## Alert if file system is close to full 
+### alert_filesystem.sh
 
 Alerts EMAIL if free disk space is under DISK_SPACE_THRESHOLD in `alert_settings.sh`.  
 This script should be run once every hour.
 
-## Alert if feed was not updated for more than 6 hours - alert_txcount.sh
+## Alert if feed was not updated for more than 6 hours 
+### alert_txcount.sh
 
 This script alerts `EMAIL` if feed update count did not increase. (Meaning the feed has not been updated since last run of this script.)
 This script should be run in every 6 hours.
+
+## Alert if there is only one ethereum node left to connect to
+### alert_client.sh
+
+This script alerts `EMAIL` if there is only 1 ethereum client to connect to.
+This script should be run in every 30 minutes.

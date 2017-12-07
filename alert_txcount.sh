@@ -1,17 +1,22 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . "$DIR/alert_settings.sh"
-ERROR=0
+. "/etc/setzer.conf"
+. "$DIR/alert_lib.sh"
+ERROR=1
 TX_COUNT_FILE="$DIR/tx.count"
-if TX_COUNT=$(/usr/local/bin/seth nonce $ACC); then 
-	if [ $TX_COUNT -gt $(/bin/cat $TX_COUNT_FILE)  ]; then
-		echo $TX_COUNT > $TX_COUNT_FILE
-	else
-		ERROR=1;
-	fi
-else
-	ERROR=1;
-fi
+for PORT in ${RPC_PORTS:-8545}; do
+  export ETH_RPC_PORT=$PORT
+  log "Trying on RPC port $ETH_RPC_PORT."
+  if TX_COUNT=$(timeout $RPC_TIMEOUT /usr/local/bin/seth nonce $ACC); then 
+  	if [ $TX_COUNT -gt $(/bin/cat $TX_COUNT_FILE)  ]; then
+  		echo $TX_COUNT > $TX_COUNT_FILE
+		ERROR=0
+		log "Node running on RPC port $ETH_RPC_PORT"
+  	fi
+	break;
+  fi
+done
 if [ $ERROR -eq 1 ]; then 
 	printf "Vox alert feed not working!\r\n\r\n\
 The feed has not been updated for more than 6 hours.\r\n\
