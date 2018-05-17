@@ -12,7 +12,7 @@ Directory contains necessary scripts that if run from crontab, can make sure tha
 ## Installation
 Lets assume the git clone base directory is DIR.
 
-0. Edit `alert_settings.sh` and update  `EMAIL`, and `ACC` variables. (See **Setup settings** for details!)
+0. Edit `alert.conf` and update  `EMAIL`, and `ACC` variables. (See **Setup settings** for details!)
 1. Install all the packages under Prerequisities.  
 2. `mkdir /root/.scripts` # create dir for scripts  
 3. `cp $DIR/\*.sh /root/.scripts` # copy all script files from DIR to /root/.scripts  
@@ -39,7 +39,7 @@ Note: You can install both **geth** and **parity** clients at the same time.
 export RPC_TIMEOUT=50s
 ```
 Note: in previous implementations `$ALERT_NODE_TIMEOUT` was used. But in current implementation we just use setzer's `$RPC_TIMEOUT` for the same purpose.
-### alert_settings.sh
+### alert.conf
 **PLEASE EDIT THIS FILE BEFORE USING SCRIPTS**
 ```bash
 #email for alerts
@@ -72,7 +72,7 @@ export GETH_NODE_PORT=30305
 ## Alert if balance too low 
 ### alert_balance.sh
 
-Alerts email address if balance of feeds account is below THRESHOLD Ether defined in `alert_settings.sh`.
+Alerts email address if balance of feeds account is below THRESHOLD Ether defined in `alert.conf`.
 
 Script should be run every hour. 
 
@@ -91,7 +91,7 @@ Script should be run every hour.
 ## Alert if file system is close to full 
 ### alert_filesystem.sh
 
-Alerts EMAIL if free disk space is under DISK_SPACE_THRESHOLD in `alert_settings.sh`.  
+Alerts EMAIL if free disk space is under DISK_SPACE_THRESHOLD in `alert.conf`.  
 This script should be run once every hour.
 
 ## Alert if feed was not updated for more than 6 hours 

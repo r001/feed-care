@@ -1,6 +1,8 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-. "$DIR/alert_settings.sh"
+. "$DIR/alert_lib.sh"
+getnode
+. "$DIR/alert.conf"
 . "/etc/setzer.conf"
 ERROR=0
 BLOCK_AGE_FILE="$DIR/block_geth.age" 

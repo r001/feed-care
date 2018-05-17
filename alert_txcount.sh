@@ -1,8 +1,9 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-. "$DIR/alert_settings.sh"
-. "/etc/setzer.conf"
 . "$DIR/alert_lib.sh"
+getnode
+. "$DIR/alert.conf"
+. "/etc/setzer.conf"
 ERROR=1
 TX_COUNT_FILE="$DIR/tx.count"
 for PORT in ${RPC_PORTS:-8545}; do
