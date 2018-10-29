@@ -27,7 +27,8 @@ for PORT in ${RPC_PORTS:-8545}; do
     && timestamp=$(($(date +%s)-$(timeout $RPC_TIMEOUT seth block latest timestamp 2>/dev/null || echo 0) )) \
        	  && sanity=($(timeout $RPC_TIMEOUT setzer peek "$SETZER_FEED" 2> /dev/null || true))
   [[ $syncing == "false" ]] && [[ $peers -gt 0 ]] && [[ $timestamp -lt 60 ]] && [[ $sanity ]] \
-	  && running_client=$((running_client+1)) 
+	  && running_client=$((running_client+1)) &&
+  log "Node running on RPC port $ETH_RPC_PORT."
 done
 
 log "Node count: $running_client."

@@ -20,10 +20,10 @@ function getnode {
   for PORT in ${RPC_PORTS:-8545}; do
     export ETH_RPC_PORT=$PORT
     verbose "Trying on rpc port $ETH_RPC_PORT."
-    syncing=$(timeout $RPC_TIMEOUT seth rpc eth_syncing 2> /dev/null) \
-  	  && peers=$(timeout $RPC_TIMEOUT seth rpc net_peerCount 2> /dev/null) \
-      && timestamp=$(( $(date +%s) - $(timeout $RPC_TIMEOUT seth block latest timestamp 2>/dev/null || echo 0) )) \
-  	  && sanity=($(timeout $RPC_TIMEOUT setzer peek "$SETZER_FEED" 2> /dev/null || true))
+    syncing="$(timeout $RPC_TIMEOUT seth rpc eth_syncing 2> /dev/null)" \
+  	  && peers="$(timeout $RPC_TIMEOUT seth rpc net_peerCount 2> /dev/null)" \
+      && timestamp="$(( $(date +%s) - $(timeout $RPC_TIMEOUT seth block latest timestamp 2>/dev/null || echo 0) ))" \
+  	  && sanity="$(timeout $RPC_TIMEOUT setzer peek "$SETZER_FEED" 2> /dev/null || true)"
     [[ $syncing == "false" ]] && [[ $peers -gt 0 ]] && [[ $timestamp -lt 60 ]] && [[ $sanity ]] \
   	  && running_client=1  && break 
   done
