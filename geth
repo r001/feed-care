@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . "$DIR/alert.conf"
-/usr/bin/geth --syncmode "light" --rpc --port $GETH_NODE_PORT --rpcport $GETH_RPC_PORT --unlock $ACC --password /root/.scripts/p.txt
+/usr/bin/geth --syncmode "light" --rpc --port $GETH_NODE_PORT --rpcport $GETH_RPC_PORT

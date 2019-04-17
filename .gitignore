@@ -1,7 +1,9 @@
 .gitignore
-block.age
-tx.count
 alert_settings.sh
+block.age
+ssh.sh
+tx.count
+update_geoip
+p.txt
 *.swp
 *.age
-p.txt
