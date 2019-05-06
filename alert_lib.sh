@@ -6,7 +6,7 @@ function verbose {
   [[ $SETZER_VERBOSE ]] && log "[V] $*"
 }
 
-function getnode {
+function checketh {
   #get the minimal config
   eval "$( [[ -e /etc/setzer.conf ]] && cat /etc/setzer.conf \
 	  | grep 'export[[:space:]]\+\(RPC_TIMEOUT\|RPC_PORTS\|SETZER_FEED\|SETZER_VERBOSE\|SETZER_CONF\)' \
@@ -27,7 +27,10 @@ function getnode {
     [[ $syncing == "false" ]] && [[ $peers -gt 0 ]] && [[ $timestamp -lt 60 ]] && [[ $sanity ]] \
   	  && running_client=1  && break 
   done
-  
+}
+
+function getnode {
+  checketh
   if [ "${running_client:-0}" -ne 1 ]; then
    log "Not connected to Ethereum, retry in 5 seconds..."
    verbose "Syncing:    $syncing (should be false)"

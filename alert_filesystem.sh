@@ -1,5 +1,6 @@
 #!/bin/bash
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR=/root/.scripts
+#DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . "$DIR/alert.conf"
 DOMAINNAME="$(hostname)"
 USEDSPACE="$(/bin/df|/bin/grep vda1|/bin/sed 's/.*\s\([0-9]\+\)%.*/\1/g')"
