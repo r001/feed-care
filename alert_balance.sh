@@ -13,4 +13,6 @@ Please deposit into account $ACC !\r\n\r\n\
 Best regards\r\n\
 cron@"$(hostname)":$DIR/alert_balance.sh"\
 |/usr/bin/mail -a "X-Priority:1" -s "Vox alert - balance low ($BALANCE ETH)!" $EMAIL
+else
+	log "$- Balance of $BALANCE is fine. (more than threshold of $THRESHOLD)"
 fi

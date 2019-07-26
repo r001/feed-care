@@ -22,3 +22,4 @@ scripts_to_kill="alert_geth.sh alert_parity.sh alert_client.sh alert_txcount.sh 
 for script in $scripts_to_kill; do 
 	kill $(ps auxw|grep $script|sed -e 's/^root[[:space:]]*\([0-9]\+\).*/\1/')
 done
+log "$scripts_to_kill killed."
