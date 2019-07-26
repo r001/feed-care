@@ -2,6 +2,7 @@
 DIR=/root/.scripts
 #DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . "$DIR/alert.conf"
+. "$DIR/alert_lib.sh"
 DOMAINNAME="$(hostname)"
 USEDSPACE="$(/bin/df|/bin/grep vda1|/bin/sed 's/.*\s\([0-9]\+\)%.*/\1/g')"
 if (( "$(echo "$USEDSPACE >= $DISK_SPACE_THRESHOLD" | bc -l)"  )); then 

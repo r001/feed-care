@@ -1,7 +1,10 @@
 run_by_cron=$1
 
 function log {
-  [[ "$run_by_cron" == "-c" ]] && /usr/bin/logger -t "$0[$$]" "$*"
+	fullpath=$0	
+	filename=${fullpath##*/}
+	filename_short=${filename%.*}
+  [[ "$run_by_cron" == "-c" ]] && /usr/bin/logger -t "$filename_short[$$]" "$*"
   [[ "$run_by_cron" != "-c" ]] && echo "$*"
 }
 
@@ -34,6 +37,7 @@ function checketh {
 
 function getnode {
 
+	unset ETH_RPC_URL
 	# check we're connected to ethereum
 	while [[ "$(/usr/local/bin/setzer connected)" != "true" ]]; do
 		unset ETH_RPC_URL
@@ -46,13 +50,14 @@ function getnode {
 			for url in $RPC_URLS; do
 				export ETH_RPC_URL=$url
 				log "Trying on rpc url $ETH_RPC_URL"
-				[[ "$(/usr/local/bin/setzer connected)" == "true" ]] && break && url_ok=true
+				[[ "$(/usr/local/bin/setzer connected)" == "true" ]] && url_ok=true && break 
 			done
 			[[ "$ok" == "true" ]] && unset ETH_RPC_URL 
 			[[ "$url_ok" == "true" ]] && ok=true
 		fi
 		[[ "$ok" != "true" ]] && log "Not connected to Ethereum, retry in 10 seconds..." && sleep 10
 	done
+	echo $ETH_RPC_URL
 	[[ -z "$ETH_RPC_URL" ]] && log "Node running on rpc port ${ETH_RPC_PORT:-8545}."
 	[[ -n "$ETH_RPC_URL" ]] && log "Node running on rpc url $ETH_RPC_URL."
 }

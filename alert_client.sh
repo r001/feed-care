@@ -3,7 +3,6 @@ DIR=/root/.scripts
 #DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . "$DIR/alert_lib.sh"
 . "$DIR/alert.conf"
-alias log="log $1"
 function messageuser {
 	if (( $running_client < 2  )); then 
 		printf "Alert from VOX!\r\n\r\n\
