@@ -4,7 +4,6 @@ DIR=/root/.scripts
 . "$DIR/alert_lib.sh"
 . "$DIR/alert.conf"
 . "/etc/setzer.conf"
-ERROR=0
 BLOCK_AGE_FILE="$DIR/block_geth.age" 
 unset ETH_RPC_URL
 export ETH_RPC_PORT=$GETH_RPC_PORT 

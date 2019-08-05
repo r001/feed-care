@@ -3,8 +3,8 @@ export PATH="$PATH:/usr/local/bin/:/usr/bin/"
 DIR=/root/.scripts
 #DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . "$DIR/alert_lib.sh"
-getnode
 . "$DIR/alert.conf"
+getnode
 BALANCE="$(/usr/local/bin/seth balance $ACC |/bin/sed  s/E.*//g)"
 if (( $(echo "$BALANCE < $THRESHOLD" | bc -l)  )); then 
 	printf "Alert from VOX!\r\n\r\n\

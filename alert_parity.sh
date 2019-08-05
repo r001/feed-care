@@ -2,7 +2,6 @@
 DIR=/root/.scripts
 #DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . "$DIR/alert_lib.sh"
-getnode
 . "$DIR/alert.conf"
 . "/etc/setzer.conf"
 ERROR=0

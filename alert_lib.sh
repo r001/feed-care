@@ -36,6 +36,11 @@ function checketh {
 }
 
 function getnode {
+	# Global configuration
+	if [[ -e /etc/setzer.conf ]]; then
+		# shellcheck source=/dev/null
+		. "/etc/setzer.conf"
+	fi
 
 	unset ETH_RPC_URL
 	# check we're connected to ethereum
